@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import AppCars from '../components/AppCars.vue'
+import AddCar from '../components/AddCar.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/cars',
     name: 'Cars',
     component: AppCars
+  },
+  {
+    path: '/add',
+    name: 'AddCar',
+    component: AddCar
   }
 ]
 
