@@ -103,7 +103,22 @@
     <b-button variant="outline-primary" @click="addCar">Add Car</b-button>
     <b-button variant="outline-danger" @click="resetForm">Reset</b-button>
   </form>
+  <div>
+  <b-button v-b-modal.modal-1>Preview</b-button>
 
+  <b-modal id="modal-1" title="BootstrapVue">
+    <p class="my-4">Car brand: {{car.brand}}</p>
+    <p class="my-4">Car model: {{car.model}}</p>
+    <p class="my-4">Year: {{car.year}}</p>
+    <p class="my-4">Max Speed: {{car.maxSpeed}}</p>
+    <p class="my-4">Number of doors: {{car.numberOfDoors}}</p>
+    <p class="my-4">Engine type: {{car.engine}}</p>
+    <p class="my-4">Is automatic gearbox: {{car.isAutomatic}}</p>
+
+
+  </b-modal>
+</div>
+</div>
   </div>
 </template>
 
