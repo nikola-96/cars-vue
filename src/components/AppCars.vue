@@ -1,8 +1,10 @@
 <template>
     <div>
-        <CarList :cars="cars"/>
-        <h1></h1>
-        <button @click="show" ></button>
+        <b-container class="bv-example-row">
+            <b-row>
+                <b-col><CarList :cars="cars"/></b-col>
+            </b-row>
+        </b-container>
     </div>
 </template>
 
@@ -19,20 +21,9 @@ export default {
             cars: [],
         }
     },
-    beforeRouteEnter (to, from, next) {
-        carService.getAll()
-        .then((response) => {
-            next((vm) => {
-            vm.cars = response.data
-            })
-        }).catch((error) => {
-            console.log(error)
-        })
+    async created() {
+        this.cars = await carService.getAll();
     },
-    methods: {
-        show(){
-            console.log(this.cars)
-        }
-    },    
 }
+
 </script>

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import AppCars from '../components/AppCars.vue'
-import AddCar from '../components/AddCar.vue'
+import AddCar from '../views/AddCar.vue'
 
 Vue.use(VueRouter)
 

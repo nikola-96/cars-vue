@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="jumbotron">
       <h3>Car List</h3>
       <table class="table">
         <tr>
@@ -10,8 +10,6 @@
           <th>Automatic</th>
           <th>Engine</th>
           <th>Number of Dors</th>
-          <th>Automatic</th>
-
         </tr>
         <tr v-for="car in cars" :key="car.id">
           <td>{{ car.brand }}</td>
@@ -28,10 +26,6 @@
 <script>
 export default {
     name: 'CarList',
-    props: {
-      cars:{
-        type: Array
-      }
-    }
+    props: ['cars']
 }
 </script>
