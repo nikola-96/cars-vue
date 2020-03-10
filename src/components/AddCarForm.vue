@@ -101,6 +101,7 @@
     </b-form-group>
 
     <b-button variant="outline-primary" @click="addCar">Add Car</b-button>
+    <b-button variant="outline-danger" @click="resetForm">Reset</b-button>
   </form>
 
   </div>
@@ -132,7 +133,10 @@ export default {
     },
       redirect(){
     this.$router.push('/cars')
-  }
+  },
+    resetForm(){
+      this.car = {}
+    }
 
   },
   }
