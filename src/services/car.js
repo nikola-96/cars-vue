@@ -14,8 +14,13 @@ export default class CarService {
         const response = await HTTP.get(`/cars/${id}`)
         return response.data
     }
-    edit(car) {
-        return HTTP.put(`/cars/${car.id}`, car)
+    async edit(car) {
+        const response = HTTP.put(`/cars/${car.id}`, car)
+        return response.data
+    }
+    async deleteCar(id) {
+        const response = HTTP.delete(`/cars/${id}`)
+        return response.data
     }
 
 }
