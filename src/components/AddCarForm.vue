@@ -100,7 +100,7 @@
           </b-form-checkbox>
     </b-form-group>
 
-    <b-button variant="outline-primary" @click="addCar">Add Car</b-button>
+    <b-button variant="outline-primary" @click="checkMethod">Add Car</b-button>
     <b-button variant="outline-danger" @click="resetForm">Reset</b-button>
   </form>
   <div>
@@ -138,23 +138,44 @@ export default {
         { name: 'Electric' },
       ],
       errors: [],
+      carId: null
     }
+  },
+   created() {
+     this.carId = this.$route.params.id
+     if(this.carId){
+     this.getCar()
+     }
   },
   methods: {
     addCar(){
       carService.add(this.car)
       .then((success)=>{
-        this.redirect()   
+        this.redirect('/cars')   
       })
     },
-      redirect(){
-    this.$router.push('/cars')
+      redirect(route){
+        this.$router.push(`${route}`)
   },
-    resetForm(){
-      this.car = {}
-    },
+      resetForm(){
+        this.car = {}
+      },
+      async getCar(){
+        this.car = await carService.getCar(this.$route.params.id)      
+      },
+      checkMethod(){
+        if(this.carId) {
+          this.editCar()
+        }
+        this.addCar()
+      }, 
+      async editCar(){
+        const response = await carService.edit(this.car)
+        this.car = {}
+        this.redirect('/cars')
+      }
+      }
 
-  },
   }
 
 </script>

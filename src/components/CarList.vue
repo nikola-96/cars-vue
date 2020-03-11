@@ -33,9 +33,8 @@ export default {
     props: ['cars'],
 
     methods: {
-      editCar(id){
-        console.log(id)
-
+     editCar(id){
+      this.$router.push(`/edit/${id}`)
       }
     },
 }
