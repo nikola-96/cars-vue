@@ -10,8 +10,9 @@
       label="Enter your brand"
       label-for="input-horizontal"
     >
-      <b-form-input id="input-horizontal" required="required" placeholder="Brand" v-model="car.brand"></b-form-input>
-    </b-form-group>
+
+      <b-form-input id="input-horizontal" required="required" placeholder="Brand" minlength="2" v-model="car.brand"></b-form-input>
+      </b-form-group>
 
         <b-form-group
       id="fieldset-horizontal"
@@ -20,7 +21,7 @@
       label="Enter your car model"
       label-for="input-horizontal"
     >
-      <b-form-input id="input-horizontal" required="required" placeholder="Model" v-model="car.model"></b-form-input>
+      <b-form-input id="input-horizontal" required="required" minlength="2" placeholder="Model" v-model="car.model"></b-form-input>
     </b-form-group>
 
         <b-form-group
@@ -44,11 +45,10 @@
       label="Enter your car max speed"
       label-for="input-horizontal"
     >
-        <b-form-input required="required" key="number" placeholder="Max Speed" v-model="car.maxSpeed"></b-form-input>
+        <b-form-input  key="number" placeholder="Max Speed" v-model="car.maxSpeed"></b-form-input>
     </b-form-group>
 
     
-
             <b-form-group
       id="fieldset-horizontal"
       label-cols-sm="4"
@@ -136,7 +136,8 @@ export default {
         { name: 'Disel' },
         { name: 'Hibryd' },
         { name: 'Electric' },
-      ]
+      ],
+      errors: [],
     }
   },
   methods: {
@@ -151,7 +152,7 @@ export default {
   },
     resetForm(){
       this.car = {}
-    }
+    },
 
   },
   }

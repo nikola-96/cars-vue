@@ -10,6 +10,7 @@
           <th>Automatic</th>
           <th>Engine</th>
           <th>Number of Dors</th>
+          <th></th>
         </tr>
         <tr v-for="car in cars" :key="car.id">
           <td>{{ car.brand }}</td>
@@ -19,13 +20,23 @@
           <td>{{ car.isAutomatic }}</td>
           <td>{{ car.engine }}</td>
           <td>{{ car.numberOfDoors }}</td>
+          <td><button type="button" class="btn btn-outline-secondary" @click="editCar(car.id)">Edit</button></td>
           </tr>
       </table>
     </div>
 </template>
 <script>
+import { carService } from '@/services/car.js'
+
 export default {
     name: 'CarList',
-    props: ['cars']
+    props: ['cars'],
+
+    methods: {
+      editCar(id){
+        console.log(id)
+
+      }
+    },
 }
 </script>
